@@ -1,0 +1,14 @@
+{
+  "name": "me-and-my-family-backend",
+  "version": "0.0.0",
+  "description": "Backend for me-and-my-family",
+  "main": "index.js",
+  "author": "greysonrichey@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^3.15.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.15.0"
+  }
+}

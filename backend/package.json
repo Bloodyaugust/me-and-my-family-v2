@@ -5,13 +5,18 @@
   "main": "index.js",
   "author": "greysonrichey@gmail.com",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.mjs"
+  },
   "devDependencies": {
+    "nodemon": "^2.0.16",
     "prisma": "^3.15.0"
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
     "@prisma/client": "^3.15.0",
     "dotenv": "^16.0.1",
-    "koa": "^2.13.4"
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0"
   }
 }

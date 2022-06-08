@@ -13,6 +13,10 @@ allRoutes.forEach(route => {
     case 'get':
       router.get(route.path, route.fn);
       break;
+
+    case 'post':
+      router.post(route.path, route.fn);
+      break;
   
     default:
       break;

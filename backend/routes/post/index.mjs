@@ -2,17 +2,17 @@ import prisma from "../../db-client/index.mjs";
 
 export default [
   {
-    path: '/users',
+    path: '/posts',
     type: 'get',
     fn: async (ctx, next) => {
-      ctx.body = await prisma.user.findMany();
+      ctx.body = await prisma.post.findMany();
     },
   },
   {
-    path: '/users/:id',
+    path: '/posts/:id',
     type: 'get',
     fn: async (ctx, next) => {
-      ctx.body = await prisma.user.findUnique({
+      ctx.body = await prisma.post.findUnique({
         where: {
           id: parseInt(ctx.params.id, 10)
         }

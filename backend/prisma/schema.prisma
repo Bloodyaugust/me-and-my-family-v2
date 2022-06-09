@@ -34,4 +34,13 @@ model User {
   posts   Post[]
   profile Profile?
   role    String   @default("user")
+  session Session?
+}
+
+model Session {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
+  createdAt DateTime @default(now())
+  token     String
 }

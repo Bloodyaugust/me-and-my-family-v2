@@ -1,11 +1,13 @@
 import Router from '@koa/router';
 import userRoutes from './user/index.mjs';
 import postRoutes from './post/index.mjs';
+import loginRoutes from './login/index.mjs';
 
 const router = new Router();
 const allRoutes = [
   ...userRoutes,
   ...postRoutes,
+  ...loginRoutes,
 ];
 
 allRoutes.forEach(route => {

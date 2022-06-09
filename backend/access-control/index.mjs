@@ -17,9 +17,20 @@ export async function useAccessControl(ctx, next) {
   await next();
 }
 
-export async function useUserContext(ctx, next) {
-  const user = await prisma.user.findUnique({ where: { id: ctx.request.body.user.id } });
+export async function useSessionToken(ctx, next) {
+  const bearerToken = ctx.get('Authorization');
 
-  ctx.user = user;
+  if (bearerToken) {
+    ctx.session = await prisma.session.findFirst({ where: { token: bearerToken.split('Bearer ')[1] } });
+  }
+
+  await next();
+}
+
+export async function useUserContext(ctx, next) {
+  if (ctx.session) {
+    ctx.user = await prisma.user.findUnique({ where: { id: ctx.session.userId } });
+  }
+
   await next();
 }

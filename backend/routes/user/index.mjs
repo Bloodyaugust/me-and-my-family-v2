@@ -9,6 +9,17 @@ export default [
     },
   },
   {
+    path: '/users/current',
+    type: 'get',
+    fn: async (ctx, next) => {
+      if (ctx.user) {
+        ctx.body = ctx.user;
+      } else {
+        ctx.unauthorized();
+      }
+    },
+  },
+  {
     path: '/users/:id',
     type: 'get',
     fn: async (ctx, next) => {

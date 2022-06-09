@@ -2,6 +2,7 @@ import 'dotenv/config';
 import router from './routes/index.mjs';
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
+import koaCORS from '@koa/cors';
 import koaRespond from 'koa-respond';
 import prisma from './db-client/index.mjs';
 import { useAccessControl, useSessionToken, useUserContext } from './access-control/index.mjs';
@@ -9,6 +10,7 @@ import { useAccessControl, useSessionToken, useUserContext } from './access-cont
 const app = new Koa();
 
 app
+  .use(koaCORS())
   .use(koaRespond())
   .use(bodyParser())
   .use(useSessionToken)

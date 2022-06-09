@@ -2,12 +2,17 @@ import 'dotenv/config';
 import router from './routes/index.mjs';
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
+import koaRespond from 'koa-respond';
 import prisma from './db-client/index.mjs';
+import { useAccessControl, useUserContext } from './access-control/index.mjs';
 
 const app = new Koa();
 
 app
+  .use(koaRespond())
   .use(bodyParser())
+  .use(useUserContext)
+  .use(useAccessControl)
   .use(router.routes())
   .use(router.allowedMethods());
 

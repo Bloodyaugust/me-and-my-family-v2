@@ -33,4 +33,5 @@ model User {
   name    String?
   posts   Post[]
   profile Profile?
+  role    String   @default("user")
 }

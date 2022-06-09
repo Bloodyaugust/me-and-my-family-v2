@@ -23,14 +23,20 @@ export default [
     path: '/posts',
     type: 'post',
     fn: async (ctx, next) => {
-      const newPost = await prisma.post.create({
-        data: {
-          authorId: (await prisma.user.findMany({ take: 1 }))[0].id,
-          content: ctx.request.body.content,
-        }
-      });
+      const allowed = ctx.ac.can(ctx.user.role).createOwn('post').granted;
 
-      ctx.body = newPost;
+      if (allowed) {
+        const newPost = await prisma.post.create({
+          data: {
+            authorId: (await prisma.user.findMany({ take: 1 }))[0].id,
+            content: ctx.request.body.content,
+          }
+        });
+  
+        ctx.body = newPost;
+      } else {
+        ctx.unauthorized();
+      }
     },
   },
 ];

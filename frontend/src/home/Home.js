@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { getCurrentUser } from "../api/session";
+import Feed from "../feed/Feed";
 import { sessionContext } from "../session/SessionProvider";
+import styles from "./Home.module.css";
 
 function Home() {
   const { state } = useContext(sessionContext);
@@ -12,7 +14,10 @@ function Home() {
   }
 
   return (
-    <span>Hello {currentUser.name}!</span>
+    <div className={styles.container}>
+      <span>Hello {currentUser.name}!</span>
+      <Feed />
+    </div>
   )
 }
 

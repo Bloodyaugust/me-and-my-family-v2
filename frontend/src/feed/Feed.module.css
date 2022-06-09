@@ -1,0 +1,59 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 2rem;
+  margin-bottom: 2rem;
+  width: 80%;
+}
+
+.post {
+  border: 2px solid var(--background-2);
+  border-radius: 2px;
+  padding: 2rem;
+  white-space: pre-line;
+  width: 80%;
+}
+
+.post-content {
+  margin: 0;
+}
+
+.post-header {
+  align-items: center;
+  background-color: var(--background-2);
+  border-radius: 2px;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.post-header h3 {
+  margin: 0;
+}
+
+.post-header span {
+  font-size: small;
+}
+
+.new-post {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 50%;
+}
+
+.new-post textarea {
+  background-color: var(--background-2);
+  border: none;
+  border-radius: 2px;
+  color: var(--text-1);
+  height: 10rem;
+  resize: none;
+}
+
+.new-post button {
+  height: 2rem;
+}

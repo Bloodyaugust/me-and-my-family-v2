@@ -5,7 +5,14 @@ export default [
     path: '/posts',
     type: 'get',
     fn: async (ctx, next) => {
-      ctx.body = await prisma.post.findMany();
+      ctx.body = await prisma.post.findMany({
+        take: 10,
+        orderBy: [
+          {
+            createdAt: 'desc',
+          },
+        ],
+      });
     },
   },
   {

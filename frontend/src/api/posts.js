@@ -5,10 +5,10 @@ export async function getPosts(token) {
   return await response.json();
 }
 
-export async function createPost(token, content) {
+export async function createPost(token, formData) {
   const response = await fetch(`${API_ROOT}posts/`, {
-    ...createHeadersWithAuth(token, true),
-    body: JSON.stringify({ content }),
+    ...createHeadersWithAuth(token, false),
+    body: formData,
     method: 'POST',
   });
   return await response.json();

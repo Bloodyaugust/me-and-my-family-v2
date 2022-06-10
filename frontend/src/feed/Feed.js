@@ -42,6 +42,11 @@ export default function Feed() {
               <span>{DateTime.fromISO(post.createdAt).toLocaleString(DateTime.DATETIME_SHORT)}</span>
             </div>
             <p className={styles['post-content']}>{post.content}</p>
+            <div className={styles['post-images']}>
+                {post.images.map((image) => {
+                  return <img src={image.url} key={image.id} />
+                })}
+              </div>
           </div>
         )
       })}

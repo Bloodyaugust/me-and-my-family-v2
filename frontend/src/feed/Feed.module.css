@@ -38,6 +38,18 @@
   font-size: small;
 }
 
+.post-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.post-images img {
+  max-width: 100px;
+}
+
 .new-post {
   display: flex;
   flex-direction: column;

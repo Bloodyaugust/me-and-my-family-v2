@@ -8,9 +8,14 @@ ac.grant('user')
     .deleteOwn('post')
     .updateOwn('post')
     .readAny('post')
+    .createOwn('image')
+    .deleteOwn('image')
+    .updateOwn('image')
+    .readAny('image')
   .grant('admin')
     .extend('user')
     .deleteAny('post')
+    .deleteAny('image')
 
 export async function useAccessControl(ctx, next) {
   ctx.ac = ac;

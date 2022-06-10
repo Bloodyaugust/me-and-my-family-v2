@@ -18,6 +18,7 @@ model Post {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
+  images    Image[]
 }
 
 model Profile {
@@ -32,6 +33,7 @@ model User {
   email   String   @unique
   name    String?
   posts   Post[]
+  images  Image[]
   profile Profile?
   role    String   @default("user")
   session Session?
@@ -43,4 +45,15 @@ model Session {
   userId    Int      @unique
   createdAt DateTime @default(now())
   token     String
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
+  extension String   @default("jpg")
 }

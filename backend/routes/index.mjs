@@ -2,12 +2,14 @@ import Router from '@koa/router';
 import userRoutes from './user/index.mjs';
 import postRoutes from './post/index.mjs';
 import loginRoutes from './login/index.mjs';
+import imageRoutes from './images/index.mjs';
 
 const router = new Router();
 const allRoutes = [
   ...userRoutes,
   ...postRoutes,
   ...loginRoutes,
+  ...imageRoutes,
 ];
 
 allRoutes.forEach(route => {
@@ -18,6 +20,10 @@ allRoutes.forEach(route => {
 
     case 'post':
       router.post(route.path, route.fn);
+      break;
+
+    case 'upload':
+      router.post(route.path, route.fn[0], route.fn[1]);
       break;
   
     default:

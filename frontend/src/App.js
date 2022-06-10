@@ -6,6 +6,7 @@ import {
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Home from './home/Home';
 import Login from './login/Login';
+import Profile from './profile/Profile';
 import { SessionProvider } from './session/SessionProvider';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/profile/:id" element={<Profile />} />
             </Routes>
           </SessionProvider>
         </BrowserRouter>

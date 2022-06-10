@@ -26,6 +26,7 @@ model Profile {
   bio    String?
   user   User    @relation(fields: [userId], references: [id])
   userId Int     @unique
+  image  Image?
 }
 
 model User {
@@ -56,4 +57,6 @@ model Image {
   post      Post?    @relation(fields: [postId], references: [id])
   postId    Int?
   extension String   @default("jpg")
+  profile   Profile? @relation(fields: [profileId], references: [id])
+  profileId Int?     @unique
 }

@@ -3,6 +3,7 @@ import userRoutes from './user/index.mjs';
 import postRoutes from './post/index.mjs';
 import loginRoutes from './login/index.mjs';
 import imageRoutes from './images/index.mjs';
+import profileRoutes from './profile/index.mjs';
 
 const router = new Router();
 const allRoutes = [
@@ -10,6 +11,7 @@ const allRoutes = [
   ...postRoutes,
   ...loginRoutes,
   ...imageRoutes,
+  ...profileRoutes,
 ];
 
 allRoutes.forEach(route => {

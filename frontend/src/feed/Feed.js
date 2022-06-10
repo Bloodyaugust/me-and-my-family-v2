@@ -17,6 +17,7 @@ export default function Feed() {
     if (postSuccess) {
       queryClient.invalidateQueries('posts');
       newPostTextareaRef.current.value = '';
+      newPostImagesRef.current.value = '';
     }
   }, [postSuccess]);
 

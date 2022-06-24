@@ -1,9 +1,11 @@
 import Router from '@koa/router';
+import { graphqlHTTP } from 'koa-graphql';
 import userRoutes from './user/index.mjs';
 import postRoutes from './post/index.mjs';
 import loginRoutes from './login/index.mjs';
 import imageRoutes from './images/index.mjs';
 import profileRoutes from './profile/index.mjs';
+import schema from '../graphql/index.mjs';
 
 const router = new Router();
 const allRoutes = [
@@ -32,5 +34,10 @@ allRoutes.forEach(route => {
       break;
   }
 });
+
+router.all('/graphql', graphqlHTTP({
+  schema: schema,
+  graphiql: true,
+}));
 
 export default router;

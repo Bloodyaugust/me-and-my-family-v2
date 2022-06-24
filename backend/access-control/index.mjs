@@ -39,3 +39,9 @@ export async function useUserContext(ctx, next) {
 
   await next();
 }
+
+export function protectGQLWithAuth(ctx) {
+  if (!ctx.session) {
+    throw new Error('Unauthorized');
+  }
+}
